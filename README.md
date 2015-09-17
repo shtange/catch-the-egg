@@ -1,6 +1,4 @@
 # Catch The Egg
-JavaScript game.
-
 Made just for fun. [Play it here!](http://shtange.com/catch-the-egg/)
 
 ## Screenshot
