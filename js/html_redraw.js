@@ -58,7 +58,7 @@ HTMLredraw.prototype.gameOver = function() {
 };
 
 HTMLredraw.prototype.gameWin = function() {
-  var msg = this.getMessage('You Win!');
+  var msg = this.getMessage('You\'ve Won!');
 
   this.messageWrap.show();
   this.messageWrap.appendChild(msg);
