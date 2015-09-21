@@ -58,16 +58,32 @@ GameManager.prototype.setup = function () {
 GameManager.prototype.move = function (key) {
   // 0: up, 1: right, 2: down, 3: left, 4: R - restart
   var position = { x: this.basket.x, y: this.basket.y };
-
-  if (key == 4) {
-    this.reStart();
-    return false;
-  }
-
-  if(key%2 == 0) {
-    position.y = (key > 0) ? 0 : 1;
+  if (typeof key==="string") {
+      switch (key) {
+          case "left-top":
+              position = {x: 0, y: 1};
+              break;
+          case "left-bottom":
+              position = {x: 0, y: 0};
+              break;
+          case "right-top":
+              position = {x: 1, y: 1};
+              break;
+          case "right-bottom":
+              position = {x: 1, y: 0};
+              break;
+      }
   } else {
-    position.x = (key > 2) ? 0 : 1;
+    if (key == 4) {
+      this.reStart();
+      return false;
+    }
+
+    if (key % 2 == 0) {
+      position.y = (key > 0) ? 0 : 1;
+    } else {
+      position.x = (key > 2) ? 0 : 1;
+    }
   }
 
   this.basket.updatePosition(position, this.api.bind(this));
