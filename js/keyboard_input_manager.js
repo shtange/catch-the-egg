@@ -42,4 +42,17 @@ KeyboardInputManager.prototype.listen = function () {
     }
 
   });
+  document.addEventListener("touchend", function(event) {
+    if (event && event.target && event.target.classList.contains("touch-spot")) {
+      if (event.target.classList.contains("touch-spot-0")) {
+        self.emit("move", "left-top");
+      } else if (event.target.classList.contains("touch-spot-1")) {
+        self.emit("move", "left-bottom");
+      } else if (event.target.classList.contains("touch-spot-2")) {
+        self.emit("move", "right-top");
+      } else if (event.target.classList.contains("touch-spot-3")) {
+        self.emit("move", "right-bottom");
+      }
+    }
+  });
 };
