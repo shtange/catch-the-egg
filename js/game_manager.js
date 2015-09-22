@@ -53,21 +53,44 @@ GameManager.prototype.setup = function () {
   }
 
   this.HTMLredraw = new HTMLredraw();
+
+  if (this.isMobile()) {
+    this.touchscreenModification();
+  }
 };
 
-GameManager.prototype.move = function (key) {
-  // 0: up, 1: right, 2: down, 3: left, 4: R - restart
-  var position = { x: this.basket.x, y: this.basket.y };
-
-  if (key == 4) {
-    this.reStart();
+GameManager.prototype.isMobile = function() {
+  try {
+    document.createEvent("TouchEvent");
+    return true;
+  }
+  catch(e) {
     return false;
   }
+};
 
-  if(key%2 == 0) {
-    position.y = (key > 0) ? 0 : 1;
-  } else {
-    position.x = (key > 2) ? 0 : 1;
+GameManager.prototype.move = function (data) {
+  var position = { x: this.basket.x, y: this.basket.y };
+
+  switch (data.type) {
+    case 'arrow':
+      // 0: up, 1: right, 2: down, 3: left, 4: R - restart
+      if(data.key%2 == 0) {
+        position.y = (data.key > 0) ? 0 : 1;
+      } else {
+        position.x = (data.key > 2) ? 0 : 1;
+      }
+      break;
+    case 'button':
+      position.x = data.x;
+      position.y = data.y;
+      break;
+    case 'common':
+      if (data.key == 'restart') {
+        this.reStart();
+        return false;
+      }
+      break;
   }
 
   this.basket.updatePosition(position, this.api.bind(this));
@@ -187,4 +210,19 @@ GameManager.prototype.api = function(method, data) {
       this.HTMLredraw.updateBasketPosition(data);
       break;
   }
+};
+
+GameManager.prototype.touchscreenModification = function() {
+  var buttons = document.querySelector('#controls').getElementsByTagName('a');
+
+  var self = this;
+  for (var i = 0; i < buttons.length; i++) {
+    buttons[i].onclick = function() {
+      var data = { x: this.getAttribute('data-x'), y: this.getAttribute('data-y'), type: 'button' };
+      self.move(data);
+      return false;
+    };
+  }
+
+  this.HTMLredraw.mobileVersion();
 };

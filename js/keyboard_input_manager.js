@@ -24,21 +24,27 @@ KeyboardInputManager.prototype.listen = function () {
   var self = this;
 
   var map = {
-    38: 0, // Up
-    39: 1, // Right
-    40: 2, // Down
-    37: 3, // Left
-    82: 4  // R
+    38: { key: 0, type: 'arrow' }, // Up
+    39: { key: 1, type: 'arrow' }, // Right
+    40: { key: 2, type: 'arrow' }, // Down
+    37: { key: 3, type: 'arrow' }, // Left
+
+    81: { x: 0, y: 1, type: 'button' }, // Top-Left
+    69: { x: 1, y: 1, type: 'button' }, // Top-Right
+    68: { x: 1, y: 0, type: 'button' }, // Bottom-Right
+    65: { x: 0, y: 0, type: 'button' }, // Bottom-Left
+
+    82: { key: 'restart', type: 'common' }  // Restart
   };
 
-  document.addEventListener("keydown", function (event) {
+  document.addEventListener('keydown', function (event) {
     var modifiers = event.altKey && event.ctrlKey && event.metaKey &&
                     event.shiftKey;
-    var mapped    = map[event.which];
+    var data    = map[event.which];
 
-    if (!modifiers && mapped !== undefined) {
+    if (!modifiers && data !== undefined) {
       event.preventDefault();
-      self.emit("move", mapped);
+      self.emit('move', data);
     }
 
   });

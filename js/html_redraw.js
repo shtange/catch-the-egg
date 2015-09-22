@@ -13,6 +13,7 @@
  */
 
 function HTMLredraw() {
+  this.bodyWrap = document.querySelector('body');
   this.gameWrap = document.querySelector('#game-wrap');
   this.scoreWrap = document.querySelector('#score');
   this.messageWrap = document.querySelector('#message');
@@ -75,4 +76,8 @@ HTMLredraw.prototype.getMessage = function(message) {
   }
 
   return wrap;
+};
+
+HTMLredraw.prototype.mobileVersion = function() {
+  this.bodyWrap.className = 'is-mobile';
 };
