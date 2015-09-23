@@ -442,14 +442,15 @@ h3 {
       padding-bottom: 26px;
       background: transparent url('../img/github-logo.png') center bottom no-repeat;
     }
+    #game-wrap .more-info a.restart-game {
+      padding-left: 20px;
+      background: transparent url('../img/restart-icon.png') left center no-repeat;
+    }
     #game-wrap .more-info .how-to-play {
       padding-bottom: 44px;
       background: transparent url('../img/arrow-keys.png') center bottom no-repeat;
       position: absolute;
       bottom: 10px;
-    }
-    body.is-mobile #game-wrap .more-info .how-to-play {
-      display: none;
     }
 
   #message {
@@ -478,36 +479,23 @@ h3 {
 
   #controls {
     width: 100%;
-    height: 120px;
+    height: 155px;
     position: absolute;
-    bottom: 120px;
+    bottom: 100px;
   }
-    body:not(.is-mobile) #controls {
-      display: none;
-    }
     #controls a {
-      width: 40px;
-      height: 40px;
-      border-radius: 40px;
-      background: #B14426;
-      border: 2px solid #9A998E;
-      outline: 10px solid transparent;
+      width: 80px;
+      height: 80px;
+      border-radius: 80px;
+      background: transparent url('../img/nav-button.png') center center no-repeat;
       color: #B14426;
       font-size: 16px;
       line-height: 32px;
+      text-indent: -200px;
       text-align: center;
-      box-shadow: 0 0 5px #4C392A;
       position: absolute;
       display: block;
-    }
-    #controls a:before {
-      content: "";
-      width: 170%;
-      height: 170%;
-      border-radius: 100px;
-      position: absolute;
-      top: -35%;
-      left: -35%;
+      overflow: hidden;
     }
     #controls a[data-x="0"] {
       left: -80px;
@@ -521,6 +509,28 @@ h3 {
     #controls a[data-y="1"] {
       top: 0;
     }
+
+/* Mobile devices */
+body.is-mobile {
+
+}
+  body.is-mobile .page a.logo {
+    margin-top: 5%;
+  }
+  body.is-mobile .more-info a.source-code {
+    padding: 0 90px 0 0;
+    background-position: right top !important;
+  }
+  body.is-mobile #game-wrap .more-info .how-to-play {
+    display: none;
+  }
+  body.is-mobile .more-info a.restart-game {
+    float: right;
+  }
+  body:not(.is-mobile) #controls,
+  body:not(.is-mobile) body.is-mobile .more-info a.restart-game {
+    display: none;
+  }
 
 
 @media only screen and (max-width: 1024px) {
@@ -569,9 +579,9 @@ h3 {
     margin-top: 20px;
   }
   #controls a[data-x="0"] {
-    left: -14px;
+    left: -34px;
   }
   #controls a[data-x="1"] {
-    right: -14px;
+    right: -34px;
   }
 }
