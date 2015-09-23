@@ -528,7 +528,7 @@ body.is-mobile {
     float: right;
   }
   body:not(.is-mobile) #controls,
-  body:not(.is-mobile) body.is-mobile .more-info a.restart-game {
+  body:not(.is-mobile) .more-info a.restart-game {
     display: none;
   }
 
