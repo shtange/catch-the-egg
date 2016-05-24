@@ -5,7 +5,7 @@ Made just for fun. [Play it here!](http://shtange.com/catch-the-egg/)
 ![alt text](https://raw.githubusercontent.com/shtange/catch-the-egg/master/catch-the-egg-screen.jpg "Catch The Egg")
 
 ## Publications
-Review on Habr https://habrahabr.ru/post/261669/ (russian language)
+Review on [Habrahabr](https://habrahabr.ru/post/261669//) (russian language)
 
 ## License
 Released under the [MIT License](http://www.opensource.org/licenses/mit-license.php)
