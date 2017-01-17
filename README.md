@@ -1,5 +1,5 @@
 # Catch The Egg
-Made just for fun. [Play it here!](http://shtange.com/catch-the-egg/)
+Made just for fun. [Play it here!](https://shtange.github.io/catch-the-egg/)
 
 ## Screenshot
 ![alt text](https://raw.githubusercontent.com/shtange/catch-the-egg/master/catch-the-egg-screen.jpg "Catch The Egg")

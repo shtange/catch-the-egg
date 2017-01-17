@@ -1,17 +1,16 @@
 /*
- *  JavaScript game "Catch the Egg"
- *  https://github.com/shtange/catch-the-egg
+ *  "Catch the Egg" JavaScript Game
+ *  source code  : https://github.com/shtange/catch-the-egg
+ *  play it here : https://shtange.github.io/catch-the-egg/
  *
  *  Copyright 2015, Yurii Shtanhei
- *  site: http://shtange.com/catch-the-egg/
- *  google+: https://plus.google.com/+YuriiShtanhei
- *  habr: http://habrahabr.ru/users/shtange/
- *  email: y.shtanhei@gmail.com
+ *  GitHub : https://github.com/shtange/
+ *  Habr   : https://habrahabr.ru/users/shtange/
+ *  email  : y.shtanhei@gmail.com
  *
  *  Licensed under the MIT license:
  *  http://www.opensource.org/licenses/MIT
  */
-
 
 /*
  *  Grid
