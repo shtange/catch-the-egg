@@ -62,7 +62,8 @@ HTMLredraw.prototype.gameWin = function() {
   var msg = this.getMessage('You\'ve Won!');
 
   this.messageWrap.show();
-  this.messageWrap.appendChild(msg);
+  // this.messageWrap.appendChild(msg);
+  this.messageWrap.innerHTML = '<iframe width="572" height="350" src="https://www.youtube.com/embed/xgRFdKlJt6Y?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>';
 };
 
 HTMLredraw.prototype.getMessage = function(message) {
